@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="inputNumber">
+        <button id="submit">submit</button>
+    </div>
+    <div id="printResult" *ngIf="data "></div>
+    <script>
+        const inputNumber = document.getElementById('inputNumber');
+        const printResult = document.getElementById('printResult');
+        const submit = document.getElementById('submit');
+
+        submit.addEventListener("click", function () {
+            const inputData = (""+inputNumber.value).split("");
+            
+            let data = {};
+            inputData.forEach(function (x) {
+                 data[x] = (data[x] || 0) + 1; 
+                });
+            console.log(data);
+            printResult.innerHTML = `The number 0 appears ${data[0] ? data[0] : 0} times <br>
+                                     The number 1 appears ${data[1] ? data[1] : 0} times <br>   
+                                     The number 2 appears ${data[2] ? data[2] : 0} times <br>   
+                                     The number 3 appears ${data[3] ? data[3] : 0} times <br>   
+                                     The number 4 appears ${data[4] ? data[4] : 0} times <br>   
+                                     The number 5 appears ${data[5] ? data[5] : 0} times <br>   
+                                     The number 6 appears ${data[6] ? data[6] : 0} times <br>   
+                                     The number 7 appears ${data[7] ? data[7] : 0} times <br>   
+                                     The number 8 appears ${data[8] ? data[8] : 0} times <br>   
+                                     The number 9 appears ${data[9] ? data[9] : 0} times <br>   
+                                    `
+            
+        })
+
+    </script>
+</body>
+</html>
